@@ -1,0 +1,23 @@
+{
+  "name": "helloworld",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "description": "simple hello world",
+  "author": "sdasgupt@example.org",
+  "inputs":[
+    {
+      "name": "salutation",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type":"string"
+    }	
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}
