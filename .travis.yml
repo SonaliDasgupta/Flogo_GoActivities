@@ -1,0 +1,17 @@
+sudo: true
+language: go
+go:
+- 1.9.1
+install:
+- go get github.com/TIBCOSoftware/flogo-lib/...
+- go get github.com/TIBCOSoftware/flogo-contrib/...
+- go get github.com/stretchr/testify/assert
+script:
+- for path in ./activity/*; do [ -d "${path}" ] || continue; dirname="$(basename "${path}")"; go test ./activity/$dirname; done; zip -r release.zip ./activity/
+deploy:
+  provider: releases
+  api_key: $TOKEN
+  file: "release.zip"
+  skip_cleanup: true
+  on:
+    tags: true
